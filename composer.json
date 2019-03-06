@@ -1,0 +1,33 @@
+{
+    "name": "qlimix/http-diactoros",
+    "type": "project",
+    "license": "LGPL-3.0-only",
+    "authors": [
+        {
+            "name": "frank",
+            "email": "frank@qlimix.net"
+        }
+    ],
+    "require": {
+        "psr/http-server-handler": "^1.0",
+        "qlimix/http": "dev-master",
+        "zendframework/zend-diactoros": "^2.1",
+        "zendframework/zend-httphandlerrunner": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Qlimix\\Http\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@bitbucket.org:qlimix/http.git"
+        }
+    ]
+}
