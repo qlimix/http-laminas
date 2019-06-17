@@ -1,7 +1,11 @@
 {
     "name": "qlimix/http-diactoros",
-    "type": "project",
-    "license": "LGPL-3.0-only",
+    "type": "library",
+    "description": "Http helper interfaces implemented with diactoros and httphandlerrunner",
+    "license": "MIT",
+    "keywords": [
+        "http"
+    ],
     "authors": [
         {
             "name": "frank",
@@ -9,8 +13,9 @@
         }
     ],
     "require": {
+        "php": ">=7.2",
         "psr/http-server-handler": "^1.0",
-        "qlimix/http": "dev-master",
+        "qlimix/http": "^1.0",
         "zendframework/zend-diactoros": "^2.1",
         "zendframework/zend-httphandlerrunner": "^1.1"
     },
@@ -19,15 +24,15 @@
             "Qlimix\\Http\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Qlimix\\Tests\\Http\\": "tests/"
+        }
+    },
     "config": {
         "sort-packages": true
     },
-    "prefer-stable": true,
-    "minimum-stability": "dev",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@bitbucket.org:qlimix/http.git"
-        }
-    ]
+    "require-dev": {
+        "qlimix/code-standard": "^1.0"
+    }
 }

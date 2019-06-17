@@ -5,7 +5,7 @@ namespace Qlimix\Http\Response;
 use Psr\Http\Message\ResponseInterface;
 use Zend\HttpHandlerRunner\Emitter\EmitterInterface;
 
-final class DiactorosResponseEmitter implements ResponseEmitterInterface
+final class HandlerRunnerResponseEmitter implements ResponseEmitterInterface
 {
     /** @var EmitterInterface */
     private $emitter;

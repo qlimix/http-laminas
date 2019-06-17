@@ -11,11 +11,11 @@ final class DiactorosServerRequestBuilder implements ServerRequestBuilderInterfa
      * @inheritDoc
      */
     public function build(
-        array $server = null,
-        array $query = null,
-        array $body = null,
-        array $cookies = null,
-        array $files = null
+        ?array $server = null,
+        ?array $query = null,
+        ?array $body = null,
+        ?array $cookies = null,
+        ?array $files = null
     ): ServerRequestInterface {
         return ServerRequestFactory::fromGlobals($server, $query, $body, $cookies, $files);
     }
@@ -27,5 +27,4 @@ final class DiactorosServerRequestBuilder implements ServerRequestBuilderInterfa
     {
         return ServerRequestFactory::fromGlobals();
     }
-
 }
