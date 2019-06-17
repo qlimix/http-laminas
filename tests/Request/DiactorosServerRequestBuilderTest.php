@@ -11,7 +11,7 @@ final class DiactorosServerRequestBuilderTest extends TestCase
     /**
      * @test
      */
-    public function shouldReturnJsonResult(): void
+    public function shouldCreateRequest(): void
     {
         $request = new DiactorosServerRequestBuilder();
 
@@ -54,6 +54,48 @@ final class DiactorosServerRequestBuilderTest extends TestCase
         $this->assertSame($fileValue['error'], $file->getError());
         $this->assertSame($fileValue['name'], $file->getClientFilename());
         $this->assertSame($fileValue['type'], $file->getClientMediaType());
+    }
 
+    /**
+     * @test
+     */
+    public function shouldCreateRequestFromGlobals(): void
+    {
+        $request = new DiactorosServerRequestBuilder();
+
+        $serverName = 'foo_1';
+        $serverValue = 'foo_2';
+
+        $queryName = 'foo_3';
+        $queryValue = 'foo_4';
+
+        $cookieName = 'foo_5';
+        $cookieValue = 'foo_6';
+
+        $fileValue = [
+            'tmp_name' => 'foo_7',
+            'size' => 10,
+            'error' => 1,
+            'name' => 'foo_8',
+            'type' => 'foo_9',
+        ];
+
+        $_SERVER[$serverName] = $serverValue;
+        $_GET[$queryName] = $queryValue;
+        $_COOKIE[$cookieName] = $cookieValue;
+        $_FILES[] = $fileValue;
+
+        $request = $request->buildFromGlobals();
+
+        $this->assertSame($serverValue, $request->getServerParams()[$serverName]);
+        $this->assertSame($queryValue, $request->getQueryParams()[$queryName]);
+        $this->assertSame($cookieValue, $request->getCookieParams()[$cookieName]);
+
+        /** @var UploadedFileInterface $file */
+        $file = $request->getUploadedFiles()[0];
+        $this->assertSame($fileValue['size'], $file->getSize());
+        $this->assertSame($fileValue['error'], $file->getError());
+        $this->assertSame($fileValue['name'], $file->getClientFilename());
+        $this->assertSame($fileValue['type'], $file->getClientMediaType());
     }
 }
