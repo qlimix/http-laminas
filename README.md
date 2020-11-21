@@ -1,9 +1,9 @@
-# http-diactoros
+# http-laminas
 
-[![Travis CI](https://api.travis-ci.org/qlimix/http-diactoros.svg?branch=master)](https://travis-ci.org/qlimix/http-diactoros)
-[![Coveralls](https://img.shields.io/coveralls/github/qlimix/http-diactoros.svg)](https://coveralls.io/github/qlimix/http-diactoros)
-[![Packagist](https://img.shields.io/packagist/v/qlimix/http-diactoros.svg)](https://packagist.org/packages/qlimix/http-diactoros)
-[![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/qlimix/http-diactoros/blob/master/LICENSE)
+[![Travis CI](https://api.travis-ci.org/qlimix/http-laminas.svg?branch=master)](https://travis-ci.org/qlimix/http-laminas)
+[![Coveralls](https://img.shields.io/coveralls/github/qlimix/http-laminas.svg)](https://coveralls.io/github/qlimix/http-laminas)
+[![Packagist](https://img.shields.io/packagist/v/qlimix/http-laminas.svg)](https://packagist.org/packages/qlimix/http-laminas)
+[![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/qlimix/http-laminas/blob/master/LICENSE)
 
 Http helper interfaces implemented with diactoros and httphandlerrunner.
 
@@ -12,7 +12,7 @@ Http helper interfaces implemented with diactoros and httphandlerrunner.
 Using Composer:
 
 ~~~
-$ composer require qlimix/http-diactoros
+$ composer require qlimix/http-laminas
 ~~~
 
 ## usage
@@ -56,7 +56,7 @@ Response emitting:
 ```php
 <?php
 
-use Qlimix\Http\Response\HandlerRunnerResponseEmitter;
+use Qlimix\Http\Response\LaminasHandlerRunnerResponseEmitter;
 use Qlimix\Http\Response\DiactorosJsonResponse;
 use Zend\HttpHandlerRunner\Emitter\SapiEmitter;
 
@@ -64,7 +64,7 @@ $responseCreation = new DiactorosJsonResponse();
 $response = $responseCreation->response([], 200, ['x-foo' => 'foobar']);
 
 $emitter = new SapiEmitter();
-$responseEmitter = new HandlerRunnerResponseEmitter($emitter);
+$responseEmitter = new LaminasHandlerRunnerResponseEmitter($emitter);
 $responseEmitter->emit($response);
 ```
 

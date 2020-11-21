@@ -1,7 +1,7 @@
 {
-    "name": "qlimix/http-diactoros",
+    "name": "qlimix/http-laminas",
     "type": "library",
-    "description": "Http helper interfaces implemented with diactoros and httphandlerrunner",
+    "description": "Http helper interfaces implemented with Laminas diactoros and httphandlerrunner",
     "license": "MIT",
     "keywords": [
         "http"
