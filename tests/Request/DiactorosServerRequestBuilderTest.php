@@ -43,17 +43,17 @@ final class DiactorosServerRequestBuilderTest extends TestCase
             [$fileValue]
         );
 
-        $this->assertSame($serverValue, $request->getServerParams()[$serverName]);
-        $this->assertSame($queryValue, $request->getQueryParams()[$queryName]);
-        $this->assertSame($bodyValue, $request->getParsedBody()[$bodyName]);
-        $this->assertSame($cookieValue, $request->getCookieParams()[$cookieName]);
+        self::assertSame($serverValue, $request->getServerParams()[$serverName]);
+        self::assertSame($queryValue, $request->getQueryParams()[$queryName]);
+        self::assertSame($bodyValue, $request->getParsedBody()[$bodyName]);
+        self::assertSame($cookieValue, $request->getCookieParams()[$cookieName]);
 
         /** @var UploadedFileInterface $file */
         $file = $request->getUploadedFiles()[0];
-        $this->assertSame($fileValue['size'], $file->getSize());
-        $this->assertSame($fileValue['error'], $file->getError());
-        $this->assertSame($fileValue['name'], $file->getClientFilename());
-        $this->assertSame($fileValue['type'], $file->getClientMediaType());
+        self::assertSame($fileValue['size'], $file->getSize());
+        self::assertSame($fileValue['error'], $file->getError());
+        self::assertSame($fileValue['name'], $file->getClientFilename());
+        self::assertSame($fileValue['type'], $file->getClientMediaType());
     }
 
     /**
@@ -87,15 +87,15 @@ final class DiactorosServerRequestBuilderTest extends TestCase
 
         $request = $request->buildFromGlobals();
 
-        $this->assertSame($serverValue, $request->getServerParams()[$serverName]);
-        $this->assertSame($queryValue, $request->getQueryParams()[$queryName]);
-        $this->assertSame($cookieValue, $request->getCookieParams()[$cookieName]);
+        self::assertSame($serverValue, $request->getServerParams()[$serverName]);
+        self::assertSame($queryValue, $request->getQueryParams()[$queryName]);
+        self::assertSame($cookieValue, $request->getCookieParams()[$cookieName]);
 
         /** @var UploadedFileInterface $file */
         $file = $request->getUploadedFiles()[0];
-        $this->assertSame($fileValue['size'], $file->getSize());
-        $this->assertSame($fileValue['error'], $file->getError());
-        $this->assertSame($fileValue['name'], $file->getClientFilename());
-        $this->assertSame($fileValue['type'], $file->getClientMediaType());
+        self::assertSame($fileValue['size'], $file->getSize());
+        self::assertSame($fileValue['error'], $file->getError());
+        self::assertSame($fileValue['name'], $file->getClientFilename());
+        self::assertSame($fileValue['type'], $file->getClientMediaType());
     }
 }

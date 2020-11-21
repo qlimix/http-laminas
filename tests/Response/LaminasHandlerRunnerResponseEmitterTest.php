@@ -2,19 +2,16 @@
 
 namespace Qlimix\Tests\Http\Response;
 
+use Laminas\HttpHandlerRunner\Emitter\EmitterInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Qlimix\Http\Response\LaminasHandlerRunnerResponseEmitter;
-use Zend\HttpHandlerRunner\Emitter\EmitterInterface;
 
-final class HandlerRunnerResponseEmitterTest extends TestCase
+final class LaminasHandlerRunnerResponseEmitterTest extends TestCase
 {
-    /** @var MockObject */
-    private $emitter;
-
-    /** @var LaminasHandlerRunnerResponseEmitter */
-    private $handlerRunner;
+    private MockObject $emitter;
+    private LaminasHandlerRunnerResponseEmitter $handlerRunner;
 
     protected function setUp(): void
     {
