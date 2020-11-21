@@ -2,8 +2,8 @@
 
 namespace Qlimix\Http\Request;
 
+use Laminas\Diactoros\ServerRequestFactory;
 use Psr\Http\Message\ServerRequestInterface;
-use Zend\Diactoros\ServerRequestFactory;
 
 final class DiactorosServerRequestBuilder implements ServerRequestBuilderInterface
 {

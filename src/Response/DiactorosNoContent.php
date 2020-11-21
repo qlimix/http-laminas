@@ -2,8 +2,8 @@
 
 namespace Qlimix\Http\Response;
 
+use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
-use Zend\Diactoros\Response;
 
 final class DiactorosNoContent implements NoContentInterface
 {

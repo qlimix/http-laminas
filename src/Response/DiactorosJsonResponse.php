@@ -2,8 +2,8 @@
 
 namespace Qlimix\Http\Response;
 
+use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface as PSRResponseInterface;
-use Zend\Diactoros\Response\JsonResponse;
 
 final class DiactorosJsonResponse implements ResponseInterface
 {

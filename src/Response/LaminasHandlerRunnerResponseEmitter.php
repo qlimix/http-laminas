@@ -2,13 +2,12 @@
 
 namespace Qlimix\Http\Response;
 
+use Laminas\HttpHandlerRunner\Emitter\EmitterInterface;
 use Psr\Http\Message\ResponseInterface;
-use Zend\HttpHandlerRunner\Emitter\EmitterInterface;
 
-final class HandlerRunnerResponseEmitter implements ResponseEmitterInterface
+final class LaminasHandlerRunnerResponseEmitter implements ResponseEmitterInterface
 {
-    /** @var EmitterInterface */
-    private $emitter;
+    private EmitterInterface $emitter;
 
     public function __construct(EmitterInterface $emitter)
     {
